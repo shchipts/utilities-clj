@@ -1,8 +1,8 @@
-# Utilities
+# Utilities-clj
 
-A help library for commonly used function
+Utilities library for clojure projects
 
-## Libraries
+## Components
 
 * floating-point-comparison - helper for double number comparisons
 * writer - helper for saving data to different file formats
@@ -13,7 +13,7 @@ A help library for commonly used function
 * string-formatter - helper for string formatting
 * benchmark - provides benchmarking functionality
 
-## Install
+## Dependency Information
 
 To include libraries add the following to your `:dependencies`:
 
@@ -32,34 +32,12 @@ To include libraries add the following to your `:dependencies`:
 </dependency>
 ```
 
-## Usage
+## Documentation
 
-examples:
-
-(use 'utilities-clj.floating-point-comparison)
-(double= 1.0 1.000000000000001)
-=> true
-(double= [1.0 0] [1.000000000000001 1])
-=> false
-
-(use 'utilities-clj.writer)
-(csv-file parent-dir file.csv [["a_11" "a_12" "a_13"] ["a_21" "a_22" "a_23"]])
-
-(use 'utilities-clj.reader)
-(read-file file.asc)
-
-(use 'utilities-clj.file)
-(walk source-folder #".*\.asc")
-
-(use 'utilities-clj.cmd)
-(terminal {:short-desc "Cmd app example"
-           :args '("argument")
-           :args-desc [["argument" "Cmd argument"]]
-           :execute ((fn[_](println ("Hello, world!"))))})
-
-## References
-  [API Documentation] [doc] folder at the root of this distribution
+* [API docs](https://shchipts.github.io/utilities-clj/)
 
 ## License
+
+Copyright © 2018 Anna Shchiptsova, IIASA
 
 Licensed under [MIT](http://opensource.org/licenses/MIT)
