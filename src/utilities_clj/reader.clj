@@ -9,7 +9,8 @@
 (ns ^{:doc "Wraps reading of file content."
       :author "Anna Shchiptsova"}
   utilities-clj.reader
-  (:require [clojure.java.io :as io]
+  (:require [clojure.edn :as edn]
+            [clojure.java.io :as io]
             [clojure.xml :as xml]))
 
 
@@ -23,3 +24,20 @@
   "Reads xml file and returns its content."
   [path]
   (xml/parse (io/file path)))
+
+;; from https://clojuredocs.org/clojure.edn/read
+(defn load-edn
+  "Loads edn file and returns its content."
+  [source]
+  (try
+    (with-open [r (io/reader source)]
+      (edn/read (java.io.PushbackReader. r)))
+
+    (catch java.io.IOException e
+      (printf "Couldn't open '%s': %s\n"
+              source
+              (.getMessage e)))
+    (catch RuntimeException e
+      (printf "Error parsing edn file '%s': %s\n"
+              source
+              (.getMessage e)))))
