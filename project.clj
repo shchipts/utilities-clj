@@ -4,9 +4,9 @@
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/tools.cli "1.0.194"]
+                 [org.clojure/tools.cli "0.3.5"]
                  [org.clojure/math.numeric-tower "0.0.4"]
-                 [org.clojure/tools.namespace "1.0.0"]
+                 [org.clojure/tools.namespace "0.2.6"]
                  [org.clojure/java.classpath "1.0.0"]
                  [clojure-csv/clojure-csv "2.0.2"]
                  [com.cemerick/pomegranate "1.1.0"
