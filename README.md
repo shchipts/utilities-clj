@@ -19,7 +19,7 @@ To include libraries add the following to your `:dependencies`:
 
 ### Leiningen
 ```clj
-[org.iiasa/utilities-clj "1.1.0-SNAPSHOT"]
+[org.iiasa/utilities-clj "1.2.0-SNAPSHOT"]
 ```
 
 ### Maven
@@ -28,7 +28,7 @@ To include libraries add the following to your `:dependencies`:
 <dependency>
   <groupId>org.iiasa</groupId>
   <artifactId>utilities-clj</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
 </dependency>
 ```
 
