@@ -8,11 +8,11 @@
 
 (ns ^{:doc "Wraps reading of file content."
       :author "Anna Shchiptsova"}
-  utilities-clj.reader
-  (:require [clojure.edn :as edn]
+ utilities-clj.reader
+  (:require [clojure-csv.core :as csv]
+            [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.xml :as xml]))
-
 
 (defn read-file
   "Reads entire text file and returns text by lines."
@@ -24,6 +24,13 @@
   "Reads xml file and returns its content."
   [path]
   (xml/parse (io/file path)))
+
+(defn read-csv
+  "Reads entire csv file and return values by rows."
+  [path]
+  (let [csv-data (slurp path)
+        csv-file (csv/parse-csv csv-data)]
+    csv-file))
 
 ;; from https://clojuredocs.org/clojure.edn/read
 (defn load-edn

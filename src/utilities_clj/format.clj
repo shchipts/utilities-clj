@@ -8,9 +8,8 @@
 
 (ns ^{:doc "Type conversion to string using a custom format."
       :author "Anna Shchiptsova"}
-  utilities-clj.format
+ utilities-clj.format
   (:require [utilities-clj.string-formatter :as string-formatter]))
-
 
 (defn double-to-str
   "Formats a string from a floating-point number. Value is converted

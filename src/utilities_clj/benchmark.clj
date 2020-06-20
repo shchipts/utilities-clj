@@ -8,7 +8,7 @@
 
 (ns ^{:doc "Provides benchmarking functionality."
       :author "Anna Shchiptsova"}
-  utilities-clj.benchmark
+ utilities-clj.benchmark
   (:require [clojure.tools.namespace.find :as namespaces]
             [clojure.java.io :as io]
             [clojure.java.classpath :as cp]
@@ -16,7 +16,6 @@
             [cemerick.pomegranate :as pomegranate]
             [utilities-clj.writer :as writer]
             [criterium.core :as criterium]))
-
 
 (def ^:private benchmarks-dir
   "Defines project directory with benchmark tests."
@@ -44,7 +43,7 @@
     (pomegranate/add-classpath benchmarks-dir)
     (doto (->> (io/file benchmarks-dir)
                namespaces/find-namespaces-in-dir
-               ((fn[coll]
+               ((fn [coll]
                   (if-not (empty? namespaces)
                     (filter (set namespaces) coll)
                     coll))))
@@ -94,14 +93,13 @@
               (some (set [":quick"]) %))
             #(->> (remove (set [":quick"]) %)
                   (map
-                   (fn[arg]
+                   (fn [arg]
                      (->> (string/split arg  #"/")
                           (map symbol)
                           ((juxt first second)))))
                   flatten
                   (apply hash-map)))
            args)))
-
 
 (defmacro defbenchmark
   "Generate benchmark test.
@@ -194,13 +192,13 @@
          keys
          load-benchmarks
          (map
-          (fn[v]
+          (fn [v]
             (->> (the-ns v)
                  ((juxt
                    ns-publics
                    #(get (:namespaces cmd-args)
                          (ns-name %))))
-                 ((fn[[coll k]]
+                 ((fn [[coll k]]
                     (if (nil? k)
                       (vals coll)
                       (list (get coll k))))))))
@@ -221,6 +219,6 @@
          ((juxt print-benchmarks
                 #(doall
                   (map
-                   (fn[[d m]]
+                   (fn [[d m]]
                      (write-edn d m))
                    %)))))))

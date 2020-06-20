@@ -8,10 +8,9 @@
 
 (ns ^{:doc "Provides some I/O utility functions."
       :author "Anna Shchiptsova"}
-  utilities-clj.file
+ utilities-clj.file
   (:require [clojure.java.io :as io]
             [clojure.string :as string]))
-
 
 (defn walk
   "Walks through the folder files which match the specified pattern.

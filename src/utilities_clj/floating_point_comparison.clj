@@ -9,21 +9,18 @@
 
 (ns ^{:doc "Epsilon comparison of floating point numbers."
       :author "Anna Shchiptsova"}
-  utilities-clj.floating-point-comparison
+ utilities-clj.floating-point-comparison
   (:require [clojure.math.numeric-tower :as math]))
-
 
 (def ^:private epsilon
   "Defines float precision for operations with real numbers (7 decimal digits)."
   0.0000001)
-
 
 (defn- relative-diff
   "Returns difference between the first real number
    and the second real number relative to their maximum."
   [x y]
   (/ (- x y) (max (math/abs x) (math/abs y))))
-
 
 (defn real=
   "Determines whether two real numbers (or vectors of real numbers)

@@ -8,10 +8,9 @@
 
 (ns ^{:doc "Wraps writing of file content."
       :author "Anna Shchiptsova"}
-  utilities-clj.writer
+ utilities-clj.writer
   (:require [clojure.java.io :as io]
             [clojure-csv.core :as csv]))
-
 
 (defn csv-file
   "Writes data to a csv file.

@@ -7,11 +7,10 @@
 ;   You must not remove this notice, or any other, from this software.
 
 (ns ^{:doc "Provides some options for a command line program."
-    :author "Anna Shchiptsova"}
-  utilities-clj.cmd
+      :author "Anna Shchiptsova"}
+ utilities-clj.cmd
   (:require [clojure.string :as string]
             [clojure.tools.cli :as cli]))
-
 
 (def ^{:private true} cli-options
   "Default command line options."
@@ -29,7 +28,7 @@
                [short-description
                 ""
                 (->> ((juxt #(map first (:required %))
-                            #(map (fn[[arg _]]
+                            #(map (fn [[arg _]]
                                     (str "[" arg "]"))
                                   (:optional %)))
                       arguments-summary)
@@ -45,7 +44,7 @@
                             :optional)
                       arguments-summary)
                      (apply concat)
-                     (map (fn[[arg desc]]
+                     (map (fn [[arg desc]]
                             (str "  " arg \tab desc)))
                      (string/join \newline))
                 ""
@@ -57,7 +56,6 @@
   (do
     (println messsage)
     (System/exit status)))
-
 
 (defn terminal
   "Executes program in terminal.
@@ -123,20 +121,20 @@
                 summary
                 cli-args)]
     (cond
-     (:help options) (exit 1 (usage-method))
-     (< (count arguments)
-        (count (:required cli-args))) (exit 1 (usage-method))
-     (> (count arguments)
-        (->> ((juxt :required
-                    :optional)
-              cli-args)
-             (map count)
-             (apply +))) (exit 1 (usage-method))
-     errors (exit 1 (string/join \newline errors))
-     :else
-     (try
-       (execute arguments options)
-       (catch Exception e (if (:trace options)
-                            (throw e)
-                            (println (str "Error: " (.getMessage e)))))
-       (finally (shutdown-agents))))))
+      (:help options) (exit 1 (usage-method))
+      (< (count arguments)
+         (count (:required cli-args))) (exit 1 (usage-method))
+      (> (count arguments)
+         (->> ((juxt :required
+                     :optional)
+               cli-args)
+              (map count)
+              (apply +))) (exit 1 (usage-method))
+      errors (exit 1 (string/join \newline errors))
+      :else
+      (try
+        (execute arguments options)
+        (catch Exception e (if (:trace options)
+                             (throw e)
+                             (println (str "Error: " (.getMessage e)))))
+        (finally (shutdown-agents))))))

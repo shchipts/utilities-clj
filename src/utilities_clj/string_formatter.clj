@@ -8,9 +8,8 @@
 
 (ns ^{:doc "Formats data stored in a string."
       :author "Anna Shchiptsova"}
-  utilities-clj.string-formatter
+ utilities-clj.string-formatter
   (:require [clojure.string :as string]))
-
 
 (defn to-numeric
   "Changes decimal separator in a string numeric value to a point.

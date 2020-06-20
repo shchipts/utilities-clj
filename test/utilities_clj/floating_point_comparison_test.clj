@@ -9,20 +9,18 @@
 (deftest real-numbers-should-be-tested-for-equality
   (testing "Real numbers should be considered equal
             if they are sufficiently close to each other."
-    (
-     ; Arrange
+    (; Arrange
      let [x 0.69 y (- (+ 66 0.69) 66)]
 
-       ; Assert
-       (is (real= x y))
-       (is (real= y x)))))
+      ; Assert
+      (is (real= x y))
+      (is (real= y x)))))
 
 (deftest big-real-numbers-should-be-tested-for-equality-relative-to-their-range
- (testing "Big real numbers should be considered equal
-           if their relative error is sufficiently small."
-   (
-    ; Arrange
-    let [x 1.23456e38 y (* 1.23456 (math/expt 10 38))]
+  (testing "Big real numbers should be considered equal
+    if their relative error is sufficiently small."
+    (; Arrange
+     let [x 1.23456e38 y (* 1.23456 (math/expt 10 38))]
 
       ; Assert
       (is (real= x y))
@@ -31,23 +29,21 @@
 (deftest small-real-numbers-should-be-tested-for-equality-directly
   (testing "Small real numbers should be considered equal
             if their absolute error is sufficiently small."
-    (
-     ; Arrange
+    (; Arrange
      let [x 0.00000000002 y 0.00000000001]
 
-       ; Assert
-       (is (real= x y)))))
+      ; Assert
+      (is (real= x y)))))
 
 (deftest vectors-of-real-numbers-should-be-tested-for-equality
   (testing "Vectors of real numbers should be considered equal
             if their components are sufficiently close to each other."
-    (
-     ; Arrange
+    (; Arrange
      let [x [0.69 0.00000000002] y [(- (+ 66 0.69) 66) 0.00000000001]]
 
-       ; Assert
-       (is (real= x y))
-       (is (real= y x)))))
+      ; Assert
+      (is (real= x y))
+      (is (real= y x)))))
 
 (deftest real<-test
   (testing "A real number should be considered less than the other number
@@ -87,7 +83,6 @@
     (is (not (real= [1 1] [1 1 1])))
     (is (not (real= [1 1 1] [1 1])))))
 
-
 ;;; test grouping
 
 (deftest real=-test
@@ -98,7 +93,6 @@
     (vectors-of-real-numbers-should-be-tested-for-equality)
     (real-numbers-should-not-be-equal-with-nil)
     (vectors-of-different-size-should-not-be-equal)))
-
 
 ;;; tests in the namespace
 
