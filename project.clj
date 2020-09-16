@@ -17,6 +17,10 @@
                  [criterium "0.4.5"]]
   :plugins [[lein-codox "0.9.5"]]
   :codox {:output-path "docs"}
+  :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
+									:username :env/clojars_username
+                                    :password :env/clojars_password
+                                    :sign-releases false}]]
   :main nil
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

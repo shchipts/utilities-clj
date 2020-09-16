@@ -1,5 +1,7 @@
 # Utilities-clj
 
+[![Clojars Project](https://img.shields.io/clojars/v/org.iiasa/utilities-clj.svg)](https://clojars.org/org.iiasa/utilities-clj)
+
 Utilities library for clojure projects
 
 ## Components
