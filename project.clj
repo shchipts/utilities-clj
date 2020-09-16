@@ -1,4 +1,4 @@
-(defproject org.iiasa/utilities-clj "1.2.0-SNAPSHOT"
+(defproject org.iiasa/utilities-clj "1.0.0"
   :description "Commonly used functions."
   :url "https://github.com/shchipts/utilities-clj"
   :license {:name "The MIT License"
